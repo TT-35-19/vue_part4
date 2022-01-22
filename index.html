@@ -10,22 +10,20 @@
 		<script src="vue.js"></script>
 
 		<div id="app">
-				<p>{{ message }}</p>
-				<button v-on:click="reverseMessage">メッセージ反転</button>
+			<p v-once>{{ message }}</p>
+			<p>{{ sayHi() }}</p>
 		</div>
 
 		<script>
 			new Vue({
 				el: '#app',
 				data: {
-					message: 'HelloWorld!'
+					message: 'HelloWorld!',
 				},
 				methods: {
-					reverseMessage: function () {
-						this.message = this.message
-						.split('')
-						.reverse()
-						.join("")
+					sayHi() {
+						this.message = "Hello Vue.js"
+						return 'Hi';
 					}
 				}
 			});
