@@ -10,7 +10,8 @@
 		<script src="vue.js"></script>
 
 		<div id="app">
-			<a v-bind:href="url">Google</a>
+			<a :[attribute]="url">Google</a>
+			<a v-bind="twitterObject">Twitter</a>
 		</div>
 
 		<script>
@@ -18,6 +19,11 @@
 				el: '#app',
 				data: {
 					url: 'https://google.com',
+					attribute: 'href',
+					twitterObject: {
+						href: 'https://twitter.com',
+						id: 31
+					}
 				}
 			});
 		</script>
