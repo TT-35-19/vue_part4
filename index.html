@@ -10,21 +10,14 @@
 		<script src="vue.js"></script>
 
 		<div id="app">
-			<p v-once>{{ message }}</p>
-			<p>{{ sayHi() }}</p>
+			<a v-bind:href="url">Google</a>
 		</div>
 
 		<script>
 			new Vue({
 				el: '#app',
 				data: {
-					message: 'HelloWorld!',
-				},
-				methods: {
-					sayHi() {
-						this.message = "Hello Vue.js"
-						return 'Hi';
-					}
+					url: 'https://google.com',
 				}
 			});
 		</script>
