@@ -11,8 +11,10 @@
 
 		<div id="app">
 			<p>{{ counter }}</p>
-			<button @click="counter += 1">+1</button>
-			<p>{{ lessThanThree }}</p>
+			<button @click="countUp">+1</button>
+			<button @click="countUp()">+1</button>
+			<p>{{ doubleCounterComputed }}</p>
+			<p>{{ doubleCounterMethod() }}</p>
 		</div>
 
 		<script>
@@ -22,8 +24,8 @@
 					counter: 0
 				},
 				computed: {
-					lessThanThree: function() {
-						return this.counter > 3 ? '3より上' : '3以下'
+					doubleCounterComputed: function() {
+						return this.counter * 2
 					}
 				},
 				watch: {
