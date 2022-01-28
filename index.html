@@ -10,31 +10,15 @@
 		<script src="vue.js"></script>
 
 		<div id="app">
-			<p>{{ counter }}</p>
-			<button @click="countUp">+1</button>
-			<button @click="countUp()">+1</button>
-			<p>{{ doubleCounterComputed }}</p>
-			<p>{{ doubleCounterMethod() }}</p>
+			<h1 :style="{ color: textColor, 'background-color': bgColor }">Hello</h1>
 		</div>
 
 		<script>
 			new Vue({
 				el: '#app',
 				data: {
-					counter: 0
-				},
-				computed: {
-					doubleCounterComputed: function() {
-						return this.counter * 2
-					}
-				},
-				watch: {
-					counter: function() {
-						var vm = this;
-						setTimeout(function(){
-							vm.counter = 0
-						}, 3000)
-					}
+					textColor: 'red',
+					bgColor: 'blue'
 				}
 			})
 		</script>
