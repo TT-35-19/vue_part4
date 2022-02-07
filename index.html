@@ -12,6 +12,7 @@
 		<div id="app">
 			<p>{{message}}</p>
 			<p>{{name}}</p>
+			<p>{{myData}}</p>
 			<button @click="message = 'ボタンから変更'">変更</button>
 		</div>
 
@@ -23,7 +24,12 @@
 
 			var vm = new Vue({
 				el: '#app',
-				data: data
+				data: data,
+				computed: {
+					myData: function() {
+						return this.$data;
+					}
+				}
 			})
 
 			console.log(data === vm.$data);
