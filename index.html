@@ -15,9 +15,8 @@
 			<p>{{myData}}</p>
 			<button @click="message = 'ボタンから変更'">変更</button>
 		</div>
-		<div id="app2">
-
-		</div>
+		<div id="app2"></div>
+		<div id="app3"></div>
 
 		<script>
 			var data = {
@@ -37,13 +36,22 @@
 			vm.$mount('#app')
 
 			new Vue({
-				el:'#app2',
 				data: {
 					name: 'あああ'
 				},
 				template: '<h1>こんにちは、{{name}}</h1>'
 			}).$mount('#app2')
 
+			new Vue({
+				data: {
+					name: 'あああ'
+				},
+				render: function(createElement) {
+					return createElement('h1', 'こんにちは、' + this.name);
+				},
+			}).$mount('#app3')
+
+			var dir = document.createElement('div');
 		</script>
 	</body>
 </html>
