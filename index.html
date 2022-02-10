@@ -7,94 +7,108 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<script src="vue.js"></script>
+  <script src="vue.js"></script>
 
-		<div id="app">
-			<p>{{message}}</p>
-			<p>{{name}}</p>
-			<p>{{myData}}</p>
-			<button @click="message = 'ボタンから変更'">変更</button>
-		</div>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{name}}</p>
+    <p>{{myData}}</p>
+    <hello></hello>
+    <hello></hello>
+    <hello></hello>
+    <button @click="message = 'ボタンから変更'">変更</button>
+  </div>
 
-		<div id="app2"></div>
-		<div id="app3"></div>
-		<div id="app4">
-			<h1>Hello,{{name}}</h1>
-			<button @click="name = 'ラングラー'">名前を変更</button>
-			<button @click="destroy">インスタンスを破壊</button>
-		</div>
+  <div id="app2"></div>
+  <div id="app3"></div>
+  <div id="app4">
+    <h1>Hello,{{name}}</h1>
+    <button @click="name = 'ラングラー'">名前を変更</button>
+    <button @click="destroy">インスタンスを破壊</button>
+  </div>
+
+  <div class="hello"></div>
 
 
-		<script>
-			var data = {
-					message: 'こんにちは',
-					name: 'ダッジ'
-				}
+  <script>
+    var data = {
+        message: 'こんにちは',
+        name: 'ダッジ'
+      }
 
-			var vm = new Vue({
-				data: data,
-				computed: {
-					myData: function() {
-						return this.$data;
-					}
-				}
-			})
+    Vue.component('hello', {
+      template: '<p>こんにちは</p>'
+    });
 
-			vm.$mount('#app')
+    var vm = new Vue({
+      data: data,
+      computed: {
+        myData: function() {
+          return this.$data;
+        }
+      }
+    })
 
-			new Vue({
-				data: {
-					name: 'あああ'
-				},
-				template: '<h1>こんにちは、{{name}}</h1>'
-			}).$mount('#app2')
+    vm.$mount('#app')
 
-			new Vue({
-				data: {
-					name: 'あああ'
-				},
-				render: function(createElement) {
-					return createElement('h1', 'こんにちは、' + this.name);
-				},
-			}).$mount('#app3')
+    new Vue({
+      data: {
+        name: 'あああ'
+      },
+      template: '<h1>こんにちは、{{name}}</h1>'
+    }).$mount('#app2')
 
-			var dir = document.createElement('div');
+    new Vue({
+      data: {
+        name: 'あああ'
+      },
+      render: function(createElement) {
+        return createElement('h1', 'こんにちは、' + this.name);
+      },
+    }).$mount('#app3')
 
-			new Vue({
-				el: '#app4',
-				data: {
-					name: 'カマロ'
-				},
-				beforeCreate: function() {
-					console.log('beforeCreate');
-				},
-				created: function() {
-					console.log('Created');
-				},
-				beforeMount: function() {
-					console.log('beforeMount');
-				},
-				mounted: function() {
-					console.log('mounted');
-				},
-				beforeUpdate: function() {
-					console.log('beforeUpdate');
-				},
-				updated: function() {
-					console.log('updated');
-				},
-				beforeDestroy: function() {
-					console.log('beforeDestroy');
-				},
-				destroyed: function() {
-					console.log('destroyed');
-				},
-				methods: {
-					destroy: function() {
-						this.$destroy()
-					}
-				}
-			})
-		</script>
+    var dir = document.createElement('div');
+
+    new Vue({
+      el: '#app4',
+      data: {
+        name: 'カマロ'
+      },
+      beforeCreate: function() {
+        console.log('beforeCreate');
+      },
+      created: function() {
+        console.log('Created');
+      },
+      beforeMount: function() {
+        console.log('beforeMount');
+      },
+      mounted: function() {
+        console.log('mounted');
+      },
+      beforeUpdate: function() {
+        console.log('beforeUpdate');
+      },
+      updated: function() {
+        console.log('updated');
+      },
+      beforeDestroy: function() {
+        console.log('beforeDestroy');
+      },
+      destroyed: function() {
+        console.log('destroyed');
+      },
+      methods: {
+        destroy: function() {
+          this.$destroy()
+        }
+      }
+    })
+
+    new Vue({
+      el: '.hello',
+      template: '<p>こんにちは</p>'
+    })
+  </script>
 	</body>
 </html>
