@@ -6,13 +6,11 @@
 </template>
 
 <script>
-import LikeHeader from "./LikeHeader.vue";
-// import LikeNumber from "./LikeNumber.vue";
+import LikeHeader from "./components/LikeHeader.vue";
 
 export default {
   components: {
     LikeHeader,
-    // LikeNumber,
   },
 };
 </script>
