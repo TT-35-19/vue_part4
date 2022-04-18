@@ -1,10 +1,11 @@
 <template>
   <div>
-    <LikeHeader v-slot:default="slotProps">
+    <LikeHeader>
       <p>{{ slotProps }}</p>
       <h2>みなさん</h2>
       <h3>はじめまして</h3>
       <p>よろしくお願いします</p>
+      <template v-slot:[title]></template>
     </LikeHeader>
     <LikeNumber :total-number="number" @my-click="incrementNumber"></LikeNumber>
     <LikeNumber :total-number="number"></LikeNumber>
@@ -18,6 +19,7 @@ export default {
   data() {
     return {
       number: 14,
+      title: "title",
     };
   },
   components: {
