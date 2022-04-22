@@ -26,6 +26,19 @@
       <label for="host">主催者</label>
       <input id="host" type="text" v-model.trim="eventData.host" />
       <p>{{ eventData.host }}</p>
+
+      <label for="detail">イベントの内容</label>
+      <textarea
+        id="detail"
+        cols="30"
+        rows="10"
+        v-model="eventData.detail"
+      ></textarea>
+      <p style="white-space: pre">{{ eventData.detail }}</p>
+
+      <input type="checkbox" id="isPrivate" v-model="eventData.isPrivate" />
+      <label for="isPrivate">非公開</label>
+      <p>{{ eventData.isPrivate }}</p>
     </div>
   </div>
 </template>
@@ -41,9 +54,11 @@ export default {
       number: 14,
       currentComponent: "Home",
       eventData: {
-        title: "タイトル",
+        title: "",
         maxNumber: 0,
         host: "",
+        detail: "",
+        isPrivate: false,
       },
     };
   },
