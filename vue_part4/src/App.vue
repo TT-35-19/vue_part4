@@ -78,6 +78,15 @@
         v-model="eventData.price"
       >
       <label for="paid">有料</label>
+
+      <p>開催場所</p>
+      <select v-mode="eventData.location">
+        <option
+          v-for="location in locations"
+          :key="location"
+        >{{ location }}</option>
+      </select>
+      <p>{{ eventData.location }}</p>
     </div>
   </div>
 </template>
@@ -92,6 +101,7 @@ export default {
     return {
       number: 14,
       currentComponent: "Home",
+      locations: ["東京", "大阪", "名古屋"],
       eventData: {
         title: "",
         maxNumber: 0,
@@ -99,7 +109,8 @@ export default {
         detail: "",
         isPrivate: false,
         target: [],
-        price: "無料"
+        price: "無料",
+        location: "東京",
       },
     };
   },
