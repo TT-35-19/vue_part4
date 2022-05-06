@@ -7,6 +7,7 @@
     <transition
       name="slide"
       type="animation"
+      appear
     >
       <p v-if="show">bye</p>
     </transition>
